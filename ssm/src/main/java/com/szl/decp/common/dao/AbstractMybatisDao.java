@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.szl.decp.customer.model.User;
 
 /**
- * 抽象类实现
  * @author lx
  *
  */
