@@ -16,7 +16,7 @@ public class UserServiceImpl implements IUserService{
 	
 	@Override
 	public User getUserById(int userId) {
-		return this.userDaoImpl.selectByPrimaryKey(userId);
+		return null;//this.userDaoImpl.selectByPrimaryKey(userId);
 	}
 
 }

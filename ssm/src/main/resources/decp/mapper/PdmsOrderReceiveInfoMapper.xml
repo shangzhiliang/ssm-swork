@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.szl.decp.customer.dao.PdmsOrderReceiveInfoDao">
+	<!-- table映射实体对象 -->
+	<resultMap id="RM_PdmsOrderReceiveInfo" type="PdmsOrderReceiveInfo">
+		<result property="id" column="id" jdbcType="BIGINT"/>
+		<result property="orderNo" column="order_no" jdbcType="VARCHAR"/>
+		<result property="receiveCustomerId" column="receive_customer_id" jdbcType="BIGINT"/>
+		<result property="receiveCustomerName" column="receive_customer_name" jdbcType="VARCHAR"/>
+		<result property="receiveCustomerType" column="receive_customer_type" jdbcType="TINYINT"/>
+		<result property="receiverName" column="receiver_name" jdbcType="VARCHAR"/>
+		<result property="receiverPhone" column="receiver_phone" jdbcType="VARCHAR"/>
+		<result property="govProvinceCode" column="gov_province_code" jdbcType="VARCHAR"/>
+		<result property="govProvinceName" column="gov_province_name" jdbcType="VARCHAR"/>
+		<result property="govCityCode" column="gov_city_code" jdbcType="VARCHAR"/>
+		<result property="govCityName" column="gov_city_name" jdbcType="VARCHAR"/>
+		<result property="govCountyCode" column="gov_county_code" jdbcType="VARCHAR"/>
+		<result property="govCountyName" column="gov_county_name" jdbcType="VARCHAR"/>
+		<result property="govAddress" column="gov_address" jdbcType="VARCHAR"/>
+		<result property="receiveLongitude" column="receive_longitude" jdbcType="VARCHAR"/>
+		<result property="receiveLatitude" column="receive_latitude" jdbcType="VARCHAR"/>
+		<result property="cityId" column="city_id" jdbcType="BIGINT"/>
+		<result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+		<result property="ct" column="c_t" jdbcType="INTEGER"/>
+		<result property="ut" column="u_t" jdbcType="INTEGER"/>
+		<result property="createUser" column="create_user" jdbcType="BIGINT"/>
+		<result property="updateUser" column="update_user" jdbcType="BIGINT"/>
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="Base_Column_List">
+	    <![CDATA[
+		id,order_no,receive_customer_id,receive_customer_name,receive_customer_type,receiver_name,receiver_phone,gov_province_code,gov_province_name,gov_city_code,gov_city_name,gov_county_code,gov_county_name,gov_address,receive_longitude,receive_latitude,city_id,is_deleted,c_t,u_t,create_user,update_user
+	    ]]>
+	</sql>
+
+	<!-- 增加 -->
+	<insert id="insert" parameterType="PdmsOrderReceiveInfo" useGeneratedKeys="true" keyProperty="id">
+		insert into pdms_order_receive_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				id ,
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				order_no ,
+			</if>
+			<if test="receiveCustomerId != null ">
+				receive_customer_id ,
+			</if>
+			<if test="receiveCustomerName != null and receiveCustomerName != ''">
+				receive_customer_name ,
+			</if>
+			<if test="receiveCustomerType != null ">
+				receive_customer_type ,
+			</if>
+			<if test="receiverName != null and receiverName != ''">
+				receiver_name ,
+			</if>
+			<if test="receiverPhone != null and receiverPhone != ''">
+				receiver_phone ,
+			</if>
+			<if test="govProvinceCode != null and govProvinceCode != ''">
+				gov_province_code ,
+			</if>
+			<if test="govProvinceName != null and govProvinceName != ''">
+				gov_province_name ,
+			</if>
+			<if test="govCityCode != null and govCityCode != ''">
+				gov_city_code ,
+			</if>
+			<if test="govCityName != null and govCityName != ''">
+				gov_city_name ,
+			</if>
+			<if test="govCountyCode != null and govCountyCode != ''">
+				gov_county_code ,
+			</if>
+			<if test="govCountyName != null and govCountyName != ''">
+				gov_county_name ,
+			</if>
+			<if test="govAddress != null and govAddress != ''">
+				gov_address ,
+			</if>
+			<if test="receiveLongitude != null and receiveLongitude != ''">
+				receive_longitude ,
+			</if>
+			<if test="receiveLatitude != null and receiveLatitude != ''">
+				receive_latitude ,
+			</if>
+			<if test="cityId != null ">
+				city_id ,
+			</if>
+			<if test="isDeleted != null ">
+				is_deleted ,
+			</if>
+			<if test="ct != null ">
+				c_t ,
+			</if>
+			<if test="ut != null ">
+				u_t ,
+			</if>
+			<if test="createUser != null ">
+				create_user ,
+			</if>
+			<if test="updateUser != null ">
+				update_user ,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="orderNo != null and orderNo != ''">
+				#{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveCustomerId != null ">
+				#{receiveCustomerId,jdbcType=BIGINT},
+			</if>
+			<if test="receiveCustomerName != null and receiveCustomerName != ''">
+				#{receiveCustomerName,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveCustomerType != null ">
+				#{receiveCustomerType,jdbcType=TINYINT},
+			</if>
+			<if test="receiverName != null and receiverName != ''">
+				#{receiverName,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverPhone != null and receiverPhone != ''">
+				#{receiverPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="govProvinceCode != null and govProvinceCode != ''">
+				#{govProvinceCode,jdbcType=VARCHAR},
+			</if>
+			<if test="govProvinceName != null and govProvinceName != ''">
+				#{govProvinceName,jdbcType=VARCHAR},
+			</if>
+			<if test="govCityCode != null and govCityCode != ''">
+				#{govCityCode,jdbcType=VARCHAR},
+			</if>
+			<if test="govCityName != null and govCityName != ''">
+				#{govCityName,jdbcType=VARCHAR},
+			</if>
+			<if test="govCountyCode != null and govCountyCode != ''">
+				#{govCountyCode,jdbcType=VARCHAR},
+			</if>
+			<if test="govCountyName != null and govCountyName != ''">
+				#{govCountyName,jdbcType=VARCHAR},
+			</if>
+			<if test="govAddress != null and govAddress != ''">
+				#{govAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveLongitude != null and receiveLongitude != ''">
+				#{receiveLongitude,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveLatitude != null and receiveLatitude != ''">
+				#{receiveLatitude,jdbcType=VARCHAR},
+			</if>
+			<if test="cityId != null ">
+				#{cityId,jdbcType=BIGINT},
+			</if>
+			<if test="isDeleted != null ">
+				#{isDeleted,jdbcType=BIT},
+			</if>
+			<if test="ct != null ">
+				#{ct,jdbcType=INTEGER},
+			</if>
+			<if test="ut != null ">
+				#{ut,jdbcType=INTEGER},
+			</if>
+			<if test="createUser != null ">
+				#{createUser,jdbcType=BIGINT},
+			</if>
+			<if test="updateUser != null ">
+				#{updateUser,jdbcType=BIGINT},
+			</if>
+		</trim>
+	</insert>
+	<!-- 更新 -->
+	<update id="update" parameterType="PdmsOrderReceiveInfo">
+		UPDATE pdms_order_receive_info
+		<set>
+			<if test="orderNo != null and orderNo != ''">
+			order_no = #{orderNo,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveCustomerId != null ">
+			receive_customer_id = #{receiveCustomerId,jdbcType=BIGINT},
+			</if>
+			<if test="receiveCustomerName != null and receiveCustomerName != ''">
+			receive_customer_name = #{receiveCustomerName,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveCustomerType != null ">
+			receive_customer_type = #{receiveCustomerType,jdbcType=TINYINT},
+			</if>
+			<if test="receiverName != null and receiverName != ''">
+			receiver_name = #{receiverName,jdbcType=VARCHAR},
+			</if>
+			<if test="receiverPhone != null and receiverPhone != ''">
+			receiver_phone = #{receiverPhone,jdbcType=VARCHAR},
+			</if>
+			<if test="govProvinceCode != null and govProvinceCode != ''">
+			gov_province_code = #{govProvinceCode,jdbcType=VARCHAR},
+			</if>
+			<if test="govProvinceName != null and govProvinceName != ''">
+			gov_province_name = #{govProvinceName,jdbcType=VARCHAR},
+			</if>
+			<if test="govCityCode != null and govCityCode != ''">
+			gov_city_code = #{govCityCode,jdbcType=VARCHAR},
+			</if>
+			<if test="govCityName != null and govCityName != ''">
+			gov_city_name = #{govCityName,jdbcType=VARCHAR},
+			</if>
+			<if test="govCountyCode != null and govCountyCode != ''">
+			gov_county_code = #{govCountyCode,jdbcType=VARCHAR},
+			</if>
+			<if test="govCountyName != null and govCountyName != ''">
+			gov_county_name = #{govCountyName,jdbcType=VARCHAR},
+			</if>
+			<if test="govAddress != null and govAddress != ''">
+			gov_address = #{govAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveLongitude != null and receiveLongitude != ''">
+			receive_longitude = #{receiveLongitude,jdbcType=VARCHAR},
+			</if>
+			<if test="receiveLatitude != null and receiveLatitude != ''">
+			receive_latitude = #{receiveLatitude,jdbcType=VARCHAR},
+			</if>
+			<if test="cityId != null ">
+			city_id = #{cityId,jdbcType=BIGINT},
+			</if>
+			<if test="isDeleted != null ">
+			is_deleted = #{isDeleted,jdbcType=BIT},
+			</if>
+			<if test="ct != null ">
+			c_t = #{ct,jdbcType=INTEGER},
+			</if>
+			<if test="ut != null ">
+			u_t = #{ut,jdbcType=INTEGER},
+			</if>
+			<if test="createUser != null ">
+			create_user = #{createUser,jdbcType=BIGINT},
+			</if>
+			<if test="updateUser != null ">
+			update_user = #{updateUser,jdbcType=BIGINT}
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+	</update>
+	<!-- 伪删除（更新删除行的识别码） -->
+	<update id="delete" parameterType="PdmsOrderReceiveInfo">
+		UPDATE pdms_order_receive_info SET is_deleted=1
+		WHERE
+		id = #{id} 
+	</update>
+	<!-- 按主键查询 -->
+	<select id="selectByPrimaryKey" resultMap="RM_PdmsOrderReceiveInfo" parameterType="PdmsOrderReceiveInfo">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM pdms_order_receive_info 
+	        WHERE 
+		        id = #{id} 
+	    ]]>
+	</select>
+	<!-- 按表中的XXX列查询集合 -->
+	<select id="selectByColumn" resultMap="RM_PdmsOrderReceiveInfo" parameterType="PdmsOrderReceiveInfoQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_order_receive_info
+		where ${columnName}
+		<if test="columnValueList != null">
+			<if test="columnValueList.size() ==1 ">
+				=#{columnValueList[0]}
+			</if>
+			<if test="columnValueList.size() >1 ">
+				in (
+					<foreach collection="columnValueList" item="item" index="index" separator=",">
+						#{item}
+					</foreach>
+				)
+			</if>
+		</if>
+	</select>
+	<!-- where条件 -->
+	<sql id="where">
+		<where>
+			<include refid="sql_if_not_null" />
+		</where>
+	</sql>
+	<!-- 判断空值 -->
+	<sql id="sql_if_not_null">
+		<if test="id != null ">
+		AND id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="orderNo != null and orderNo != ''">
+		AND order_no = #{orderNo,jdbcType=VARCHAR}
+		</if>
+		<if test="receiveCustomerId != null ">
+		AND receive_customer_id = #{receiveCustomerId,jdbcType=BIGINT}
+		</if>
+		<if test="receiveCustomerName != null and receiveCustomerName != ''">
+		AND receive_customer_name = #{receiveCustomerName,jdbcType=VARCHAR}
+		</if>
+		<if test="receiveCustomerType != null ">
+		AND receive_customer_type = #{receiveCustomerType,jdbcType=TINYINT}
+		</if>
+		<if test="receiverName != null and receiverName != ''">
+		AND receiver_name = #{receiverName,jdbcType=VARCHAR}
+		</if>
+		<if test="receiverPhone != null and receiverPhone != ''">
+		AND receiver_phone = #{receiverPhone,jdbcType=VARCHAR}
+		</if>
+		<if test="govProvinceCode != null and govProvinceCode != ''">
+		AND gov_province_code = #{govProvinceCode,jdbcType=VARCHAR}
+		</if>
+		<if test="govProvinceName != null and govProvinceName != ''">
+		AND gov_province_name = #{govProvinceName,jdbcType=VARCHAR}
+		</if>
+		<if test="govCityCode != null and govCityCode != ''">
+		AND gov_city_code = #{govCityCode,jdbcType=VARCHAR}
+		</if>
+		<if test="govCityName != null and govCityName != ''">
+		AND gov_city_name = #{govCityName,jdbcType=VARCHAR}
+		</if>
+		<if test="govCountyCode != null and govCountyCode != ''">
+		AND gov_county_code = #{govCountyCode,jdbcType=VARCHAR}
+		</if>
+		<if test="govCountyName != null and govCountyName != ''">
+		AND gov_county_name = #{govCountyName,jdbcType=VARCHAR}
+		</if>
+		<if test="govAddress != null and govAddress != ''">
+		AND gov_address = #{govAddress,jdbcType=VARCHAR}
+		</if>
+		<if test="receiveLongitude != null and receiveLongitude != ''">
+		AND receive_longitude = #{receiveLongitude,jdbcType=VARCHAR}
+		</if>
+		<if test="receiveLatitude != null and receiveLatitude != ''">
+		AND receive_latitude = #{receiveLatitude,jdbcType=VARCHAR}
+		</if>
+		<if test="cityId != null ">
+		AND city_id = #{cityId,jdbcType=BIGINT}
+		</if>
+		<if test="isDeleted != null ">
+		AND is_deleted = #{isDeleted,jdbcType=BIT}
+		</if>
+		<if test="ct != null ">
+		AND c_t = #{ct,jdbcType=INTEGER}
+		</if>
+		<if test="ut != null ">
+		AND u_t = #{ut,jdbcType=INTEGER}
+		</if>
+		<if test="createUser != null ">
+		AND create_user = #{createUser,jdbcType=BIGINT}
+		</if>
+		<if test="updateUser != null ">
+		AND update_user = #{updateUser,jdbcType=BIGINT}
+		</if>
+	</sql>
+	<!-- 查询行数 -->
+	<select id="count" resultType="long" parameterType="PdmsOrderReceiveInfoQuery">
+		SELECT count(1) FROM pdms_order_receive_info
+		<include refid="where" />
+	</select>
+	<!-- 查询集合 如果pageNumber小于或等于0,则不进行分页操作 -->
+	<select id="queryList" resultMap="RM_PdmsOrderReceiveInfo" parameterType="PdmsOrderReceiveInfoQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_order_receive_info
+		<include refid="where" />
+
+		<if test="sortName != null  ">
+			ORDER BY ${sortName} ${sortOrder}
+		</if>
+		<if test="sortName == null and pageNumber &gt;0 ">
+			ORDER BY id
+		</if>
+		<if test="pageNumber &gt;0 ">
+			limit #{startRecord} , #{pageSize}
+		</if>
+	</select>
+	<!-- 批量增加 -->
+	<insert id="batchInsert" useGeneratedKeys="true" parameterType="java.util.List">
+		<!-- <selectKey resultType="long" keyProperty="id" order="AFTER"> SELECT LAST_INSERT_ID() </selectKey> -->
+		insert into pdms_order_receive_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id ,
+			order_no ,
+			receive_customer_id ,
+			receive_customer_name ,
+			receive_customer_type ,
+			receiver_name ,
+			receiver_phone ,
+			gov_province_code ,
+			gov_province_name ,
+			gov_city_code ,
+			gov_city_name ,
+			gov_county_code ,
+			gov_county_name ,
+			gov_address ,
+			receive_longitude ,
+			receive_latitude ,
+			city_id ,
+			is_deleted ,
+			c_t ,
+			u_t ,
+			create_user ,
+			update_user ,
+		</trim>
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			<trim prefix=" (" suffix=")" suffixOverrides=",">
+					#{item.id,jdbcType=BIGINT},
+					#{item.orderNo,jdbcType=VARCHAR},
+					#{item.receiveCustomerId,jdbcType=BIGINT},
+					#{item.receiveCustomerName,jdbcType=VARCHAR},
+					#{item.receiveCustomerType,jdbcType=TINYINT},
+					#{item.receiverName,jdbcType=VARCHAR},
+					#{item.receiverPhone,jdbcType=VARCHAR},
+					#{item.govProvinceCode,jdbcType=VARCHAR},
+					#{item.govProvinceName,jdbcType=VARCHAR},
+					#{item.govCityCode,jdbcType=VARCHAR},
+					#{item.govCityName,jdbcType=VARCHAR},
+					#{item.govCountyCode,jdbcType=VARCHAR},
+					#{item.govCountyName,jdbcType=VARCHAR},
+					#{item.govAddress,jdbcType=VARCHAR},
+					#{item.receiveLongitude,jdbcType=VARCHAR},
+					#{item.receiveLatitude,jdbcType=VARCHAR},
+					#{item.cityId,jdbcType=BIGINT},
+					#{item.isDeleted,jdbcType=BIT},
+					#{item.ct,jdbcType=INTEGER},
+					#{item.ut,jdbcType=INTEGER},
+					#{item.createUser,jdbcType=BIGINT},
+					#{item.updateUser,jdbcType=BIGINT},
+			</trim>
+		</foreach>
+	</insert>
+	<!-- 批量伪删除 -->
+	<update id="batchDelete" parameterType="PdmsOrderReceiveInfoQuery">
+		UPDATE pdms_order_receive_info SET is_deleted = 1 WHERE id IN
+		<foreach collection="columnValueList" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<!-- 批量更新 -->
+	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index"  separator=";">
+			UPDATE pdms_order_receive_info
+			<set>
+				<if test="item.orderNo != null and item.orderNo != ''">
+				order_no = #{item.orderNo,jdbcType=VARCHAR},
+				</if>
+				<if test="item.receiveCustomerId != null ">
+				receive_customer_id = #{item.receiveCustomerId,jdbcType=BIGINT},
+				</if>
+				<if test="item.receiveCustomerName != null and item.receiveCustomerName != ''">
+				receive_customer_name = #{item.receiveCustomerName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.receiveCustomerType != null ">
+				receive_customer_type = #{item.receiveCustomerType,jdbcType=TINYINT},
+				</if>
+				<if test="item.receiverName != null and item.receiverName != ''">
+				receiver_name = #{item.receiverName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.receiverPhone != null and item.receiverPhone != ''">
+				receiver_phone = #{item.receiverPhone,jdbcType=VARCHAR},
+				</if>
+				<if test="item.govProvinceCode != null and item.govProvinceCode != ''">
+				gov_province_code = #{item.govProvinceCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.govProvinceName != null and item.govProvinceName != ''">
+				gov_province_name = #{item.govProvinceName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.govCityCode != null and item.govCityCode != ''">
+				gov_city_code = #{item.govCityCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.govCityName != null and item.govCityName != ''">
+				gov_city_name = #{item.govCityName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.govCountyCode != null and item.govCountyCode != ''">
+				gov_county_code = #{item.govCountyCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.govCountyName != null and item.govCountyName != ''">
+				gov_county_name = #{item.govCountyName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.govAddress != null and item.govAddress != ''">
+				gov_address = #{item.govAddress,jdbcType=VARCHAR},
+				</if>
+				<if test="item.receiveLongitude != null and item.receiveLongitude != ''">
+				receive_longitude = #{item.receiveLongitude,jdbcType=VARCHAR},
+				</if>
+				<if test="item.receiveLatitude != null and item.receiveLatitude != ''">
+				receive_latitude = #{item.receiveLatitude,jdbcType=VARCHAR},
+				</if>
+				<if test="item.cityId != null ">
+				city_id = #{item.cityId,jdbcType=BIGINT},
+				</if>
+				<if test="item.isDeleted != null ">
+				is_deleted = #{item.isDeleted,jdbcType=BIT},
+				</if>
+				<if test="item.ct != null ">
+				c_t = #{item.ct,jdbcType=INTEGER},
+				</if>
+				<if test="item.ut != null ">
+				u_t = #{item.ut,jdbcType=INTEGER},
+				</if>
+				<if test="item.createUser != null ">
+				create_user = #{item.createUser,jdbcType=BIGINT},
+				</if>
+				<if test="item.updateUser != null ">
+				update_user = #{item.updateUser,jdbcType=BIGINT}
+				</if>
+			</set>
+			WHERE
+				id = #{item.id} 
+		</foreach>
+	</update>
+</mapper>
+

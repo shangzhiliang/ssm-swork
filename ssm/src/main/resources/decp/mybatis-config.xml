@@ -17,7 +17,13 @@
          <typeAlias type="com.bmdc.dj.user.domain.User" alias="cutomer"/>
      </typeAliases>
      -->
+     <typeAliases>
+     	<typeAlias type="com.szl.decp.customer.model.PdmsOrderReceiveInfo" alias="PdmsOrderReceiveInfo"/>
+     	<typeAlias type="com.szl.decp.customer.query.PdmsOrderReceiveInfoQuery" alias="PdmsOrderReceiveInfoQuery"/>
+     </typeAliases>
+     
      <mappers>
-     	<mapper resource="com/szl/decp/customer/model/base/mapping/UserMapper.xml"/>
+     	<!-- <mapper resource="com/szl/decp/customer/model/base/mapping/UserMapper.xml"/> -->
+     	<mapper resource="decp/mapper/PdmsOrderReceiveInfoMapper.xml" />
      </mappers>
 </configuration>

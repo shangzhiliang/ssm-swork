@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import com.szl.decp.common.dao.AbstractMybatisDao;
 
 @Service("userDaoImpl")
-public class UserDaoImpl extends AbstractMybatisDao {
+public class UserDaoImpl {
 
     protected static final String NAMESPACE = "customer";
 
