@@ -20,10 +20,22 @@
      <typeAliases>
      	<typeAlias type="com.szl.decp.customer.model.PdmsOrderReceiveInfo" alias="PdmsOrderReceiveInfo"/>
      	<typeAlias type="com.szl.decp.customer.query.PdmsOrderReceiveInfoQuery" alias="PdmsOrderReceiveInfoQuery"/>
+     	
+     	<typeAlias type="com.szl.decp.customer.model.PdmsShippingLine" alias="PdmsShippingLine"/>
+     	<typeAlias type="com.szl.decp.customer.query.PdmsShippingLineQuery" alias="PdmsShippingLineQuery"/>
+     	
+     	<typeAlias type="com.szl.decp.customer.model.PdmsShippingLocation" alias="PdmsShippingLocation"/>
+     	<typeAlias type="com.szl.decp.customer.query.PdmsShippingLocationQuery" alias="PdmsShippingLocationQuery"/>
+     	
+     	<typeAlias type="com.szl.decp.customer.model.PdmsSortingCenterArea" alias="PdmsSortingCenterArea"/>
+     	<typeAlias type="com.szl.decp.customer.query.PdmsSortingCenterAreaQuery" alias="PdmsSortingCenterAreaQuery"/>
      </typeAliases>
      
      <mappers>
      	<!-- <mapper resource="com/szl/decp/customer/model/base/mapping/UserMapper.xml"/> -->
-     	<mapper resource="decp/mapper/PdmsOrderReceiveInfoMapper.xml" />
+     	<!-- <mapper resource="decp/mapper/PdmsOrderReceiveInfoMapper.xml" /> -->
+     	<mapper resource="decp/mapper/PdmsShippingLineMapper.xml" />
+     	<mapper resource="decp/mapper/PdmsShippingLocationMapper.xml" />
+     	<mapper resource="decp/mapper/PdmsSortingCenterAreaMapper.xml" />
      </mappers>
 </configuration>

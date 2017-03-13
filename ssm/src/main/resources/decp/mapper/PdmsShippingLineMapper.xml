@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.szl.decp.customer.dao.PdmsShippingLineDao">
+	<!-- table映射实体对象 -->
+	<resultMap id="RM_PdmsShippingLine" type="PdmsShippingLine">
+		<result property="id" column="id" jdbcType="BIGINT"/>
+		<result property="sysCode" column="sys_code" jdbcType="VARCHAR"/>
+		<result property="code" column="code" jdbcType="VARCHAR"/>
+		<result property="showCode" column="show_code" jdbcType="VARCHAR"/>
+		<result property="sortingCenterAreaShowCode" column="sorting_center_area_show_code" jdbcType="VARCHAR"/>
+		<result property="sortingCenterId" column="sorting_center_id" jdbcType="BIGINT"/>
+		<result property="regionCode" column="region_code" jdbcType="VARCHAR"/>
+		<result property="sortingCenterAreaId" column="sorting_center_area_id" jdbcType="BIGINT"/>
+		<result property="floc" column="f_loc" jdbcType="BIGINT"/>
+		<result property="type" column="type" jdbcType="TINYINT"/>
+		<result property="locNum" column="loc_num" jdbcType="INTEGER"/>
+		<result property="status" column="status" jdbcType="TINYINT"/>
+		<result property="ct" column="c_t" jdbcType="INTEGER"/>
+		<result property="creater" column="creater" jdbcType="BIGINT"/>
+		<result property="ut" column="u_t" jdbcType="INTEGER"/>
+		<result property="updater" column="updater" jdbcType="BIGINT"/>
+		<result property="updaterName" column="updaterName" jdbcType="VARCHAR"/>
+		<result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="Base_Column_List">
+	    <![CDATA[
+		id,sys_code,code,show_code,sorting_center_area_show_code,sorting_center_id,region_code,sorting_center_area_id,f_loc,type,loc_num,status,c_t,creater,u_t,updater,updaterName,is_deleted
+	    ]]>
+	</sql>
+
+	<!-- 增加 -->
+	<insert id="insert" parameterType="PdmsShippingLine" useGeneratedKeys="true" keyProperty="id">
+		insert into pdms_shipping_line
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				id ,
+			</if>
+			<if test="sysCode != null and sysCode != ''">
+				sys_code ,
+			</if>
+			<if test="code != null and code != ''">
+				code ,
+			</if>
+			<if test="showCode != null and showCode != ''">
+				show_code ,
+			</if>
+			<if test="sortingCenterAreaShowCode != null and sortingCenterAreaShowCode != ''">
+				sorting_center_area_show_code ,
+			</if>
+			<if test="sortingCenterId != null ">
+				sorting_center_id ,
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+				region_code ,
+			</if>
+			<if test="sortingCenterAreaId != null ">
+				sorting_center_area_id ,
+			</if>
+			<if test="floc != null ">
+				f_loc ,
+			</if>
+			<if test="type != null ">
+				type ,
+			</if>
+			<if test="locNum != null ">
+				loc_num ,
+			</if>
+			<if test="status != null ">
+				status ,
+			</if>
+			<if test="ct != null ">
+				c_t ,
+			</if>
+			<if test="creater != null ">
+				creater ,
+			</if>
+			<if test="ut != null ">
+				u_t ,
+			</if>
+			<if test="updater != null ">
+				updater ,
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+				updaterName ,
+			</if>
+			<if test="isDeleted != null ">
+				is_deleted ,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="sysCode != null and sysCode != ''">
+				#{sysCode,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != ''">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="showCode != null and showCode != ''">
+				#{showCode,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterAreaShowCode != null and sortingCenterAreaShowCode != ''">
+				#{sortingCenterAreaShowCode,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterId != null ">
+				#{sortingCenterId,jdbcType=BIGINT},
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+				#{regionCode,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterAreaId != null ">
+				#{sortingCenterAreaId,jdbcType=BIGINT},
+			</if>
+			<if test="floc != null ">
+				#{floc,jdbcType=BIGINT},
+			</if>
+			<if test="type != null ">
+				#{type,jdbcType=TINYINT},
+			</if>
+			<if test="locNum != null ">
+				#{locNum,jdbcType=INTEGER},
+			</if>
+			<if test="status != null ">
+				#{status,jdbcType=TINYINT},
+			</if>
+			<if test="ct != null ">
+				#{ct,jdbcType=INTEGER},
+			</if>
+			<if test="creater != null ">
+				#{creater,jdbcType=BIGINT},
+			</if>
+			<if test="ut != null ">
+				#{ut,jdbcType=INTEGER},
+			</if>
+			<if test="updater != null ">
+				#{updater,jdbcType=BIGINT},
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+				#{updaterName,jdbcType=VARCHAR},
+			</if>
+			<if test="isDeleted != null ">
+				#{isDeleted,jdbcType=TINYINT},
+			</if>
+		</trim>
+	</insert>
+	<!-- 更新 -->
+	<update id="update" parameterType="PdmsShippingLine">
+		UPDATE pdms_shipping_line
+		<set>
+			<if test="sysCode != null and sysCode != ''">
+			sys_code = #{sysCode,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != ''">
+			code = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="showCode != null and showCode != ''">
+			show_code = #{showCode,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterAreaShowCode != null and sortingCenterAreaShowCode != ''">
+			sorting_center_area_show_code = #{sortingCenterAreaShowCode,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterId != null ">
+			sorting_center_id = #{sortingCenterId,jdbcType=BIGINT},
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+			region_code = #{regionCode,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterAreaId != null ">
+			sorting_center_area_id = #{sortingCenterAreaId,jdbcType=BIGINT},
+			</if>
+			<if test="floc != null ">
+			f_loc = #{floc,jdbcType=BIGINT},
+			</if>
+			<if test="type != null ">
+			type = #{type,jdbcType=TINYINT},
+			</if>
+			<if test="locNum != null ">
+			loc_num = #{locNum,jdbcType=INTEGER},
+			</if>
+			<if test="status != null ">
+			status = #{status,jdbcType=TINYINT},
+			</if>
+			<if test="ct != null ">
+			c_t = #{ct,jdbcType=INTEGER},
+			</if>
+			<if test="creater != null ">
+			creater = #{creater,jdbcType=BIGINT},
+			</if>
+			<if test="ut != null ">
+			u_t = #{ut,jdbcType=INTEGER},
+			</if>
+			<if test="updater != null ">
+			updater = #{updater,jdbcType=BIGINT},
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+			updaterName = #{updaterName,jdbcType=VARCHAR},
+			</if>
+			<if test="isDeleted != null ">
+			is_deleted = #{isDeleted,jdbcType=TINYINT}
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+	</update>
+	<!-- 伪删除（更新删除行的识别码） -->
+	<update id="delete" parameterType="PdmsShippingLine">
+		UPDATE pdms_shipping_line SET is_deleted=1
+		WHERE
+		id = #{id} 
+	</update>
+	<!-- 按主键查询 -->
+	<select id="selectByPrimaryKey" resultMap="RM_PdmsShippingLine" parameterType="PdmsShippingLine">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM pdms_shipping_line 
+	        WHERE 
+		        id = #{id} 
+	    ]]>
+	</select>
+	<!-- 按表中的XXX列查询集合 -->
+	<select id="selectByColumn" resultMap="RM_PdmsShippingLine" parameterType="PdmsShippingLineQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_shipping_line
+		where ${columnName}
+		<if test="columnValueList != null">
+			<if test="columnValueList.size() ==1 ">
+				=#{columnValueList[0]}
+			</if>
+			<if test="columnValueList.size() >1 ">
+				in (
+					<foreach collection="columnValueList" item="item" index="index" separator=",">
+						#{item}
+					</foreach>
+				)
+			</if>
+		</if>
+	</select>
+	<!-- where条件 -->
+	<sql id="where">
+		<where>
+			<include refid="sql_if_not_null" />
+		</where>
+	</sql>
+	<!-- 判断空值 -->
+	<sql id="sql_if_not_null">
+		<if test="id != null ">
+		AND id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="sysCode != null and sysCode != ''">
+		AND sys_code = #{sysCode,jdbcType=VARCHAR}
+		</if>
+		<if test="code != null and code != ''">
+		AND code = #{code,jdbcType=VARCHAR}
+		</if>
+		<if test="showCode != null and showCode != ''">
+		AND show_code = #{showCode,jdbcType=VARCHAR}
+		</if>
+		<if test="sortingCenterAreaShowCode != null and sortingCenterAreaShowCode != ''">
+		AND sorting_center_area_show_code = #{sortingCenterAreaShowCode,jdbcType=VARCHAR}
+		</if>
+		<if test="sortingCenterId != null ">
+		AND sorting_center_id = #{sortingCenterId,jdbcType=BIGINT}
+		</if>
+		<if test="regionCode != null and regionCode != ''">
+		AND region_code = #{regionCode,jdbcType=VARCHAR}
+		</if>
+		<if test="sortingCenterAreaId != null ">
+		AND sorting_center_area_id = #{sortingCenterAreaId,jdbcType=BIGINT}
+		</if>
+		<if test="floc != null ">
+		AND f_loc = #{floc,jdbcType=BIGINT}
+		</if>
+		<if test="type != null ">
+		AND type = #{type,jdbcType=TINYINT}
+		</if>
+		<if test="locNum != null ">
+		AND loc_num = #{locNum,jdbcType=INTEGER}
+		</if>
+		<if test="status != null ">
+		AND status = #{status,jdbcType=TINYINT}
+		</if>
+		<if test="ct != null ">
+		AND c_t = #{ct,jdbcType=INTEGER}
+		</if>
+		<if test="creater != null ">
+		AND creater = #{creater,jdbcType=BIGINT}
+		</if>
+		<if test="ut != null ">
+		AND u_t = #{ut,jdbcType=INTEGER}
+		</if>
+		<if test="updater != null ">
+		AND updater = #{updater,jdbcType=BIGINT}
+		</if>
+		<if test="updaterName != null and updaterName != ''">
+		AND updaterName = #{updaterName,jdbcType=VARCHAR}
+		</if>
+		<if test="isDeleted != null ">
+		AND is_deleted = #{isDeleted,jdbcType=TINYINT}
+		</if>
+	</sql>
+	<!-- 查询行数 -->
+	<select id="count" resultType="long" parameterType="PdmsShippingLineQuery">
+		SELECT count(1) FROM pdms_shipping_line
+		<include refid="where" />
+	</select>
+	<!-- 查询集合 如果pageNumber小于或等于0,则不进行分页操作 -->
+	<select id="queryList" resultMap="RM_PdmsShippingLine" parameterType="PdmsShippingLineQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_shipping_line
+		<include refid="where" />
+
+		<if test="sortName != null  ">
+			ORDER BY ${sortName} ${sortOrder}
+		</if>
+		<if test="sortName == null and pageNumber &gt;0 ">
+			ORDER BY id
+		</if>
+		<if test="pageNumber &gt;0 ">
+			limit #{startRecord} , #{pageSize}
+		</if>
+	</select>
+	<!-- 批量增加 -->
+	<insert id="batchInsert" useGeneratedKeys="true" parameterType="java.util.List">
+		<!-- <selectKey resultType="long" keyProperty="id" order="AFTER"> SELECT LAST_INSERT_ID() </selectKey> -->
+		insert into pdms_shipping_line
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id ,
+			sys_code ,
+			code ,
+			show_code ,
+			sorting_center_area_show_code ,
+			sorting_center_id ,
+			region_code ,
+			sorting_center_area_id ,
+			f_loc ,
+			type ,
+			loc_num ,
+			status ,
+			c_t ,
+			creater ,
+			u_t ,
+			updater ,
+			updaterName ,
+			is_deleted ,
+		</trim>
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			<trim prefix=" (" suffix=")" suffixOverrides=",">
+					#{item.id,jdbcType=BIGINT},
+					#{item.sysCode,jdbcType=VARCHAR},
+					#{item.code,jdbcType=VARCHAR},
+					#{item.showCode,jdbcType=VARCHAR},
+					#{item.sortingCenterAreaShowCode,jdbcType=VARCHAR},
+					#{item.sortingCenterId,jdbcType=BIGINT},
+					#{item.regionCode,jdbcType=VARCHAR},
+					#{item.sortingCenterAreaId,jdbcType=BIGINT},
+					#{item.floc,jdbcType=BIGINT},
+					#{item.type,jdbcType=TINYINT},
+					#{item.locNum,jdbcType=INTEGER},
+					#{item.status,jdbcType=TINYINT},
+					#{item.ct,jdbcType=INTEGER},
+					#{item.creater,jdbcType=BIGINT},
+					#{item.ut,jdbcType=INTEGER},
+					#{item.updater,jdbcType=BIGINT},
+					#{item.updaterName,jdbcType=VARCHAR},
+					#{item.isDeleted,jdbcType=TINYINT},
+			</trim>
+		</foreach>
+	</insert>
+	<!-- 批量伪删除 -->
+	<update id="batchDelete" parameterType="PdmsShippingLineQuery">
+		UPDATE pdms_shipping_line SET is_deleted = 1 WHERE id IN
+		<foreach collection="columnValueList" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<!-- 批量更新 -->
+	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index"  separator=";">
+			UPDATE pdms_shipping_line
+			<set>
+				<if test="item.sysCode != null and item.sysCode != ''">
+				sys_code = #{item.sysCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.code != null and item.code != ''">
+				code = #{item.code,jdbcType=VARCHAR},
+				</if>
+				<if test="item.showCode != null and item.showCode != ''">
+				show_code = #{item.showCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.sortingCenterAreaShowCode != null and item.sortingCenterAreaShowCode != ''">
+				sorting_center_area_show_code = #{item.sortingCenterAreaShowCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.sortingCenterId != null ">
+				sorting_center_id = #{item.sortingCenterId,jdbcType=BIGINT},
+				</if>
+				<if test="item.regionCode != null and item.regionCode != ''">
+				region_code = #{item.regionCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.sortingCenterAreaId != null ">
+				sorting_center_area_id = #{item.sortingCenterAreaId,jdbcType=BIGINT},
+				</if>
+				<if test="item.floc != null ">
+				f_loc = #{item.floc,jdbcType=BIGINT},
+				</if>
+				<if test="item.type != null ">
+				type = #{item.type,jdbcType=TINYINT},
+				</if>
+				<if test="item.locNum != null ">
+				loc_num = #{item.locNum,jdbcType=INTEGER},
+				</if>
+				<if test="item.status != null ">
+				status = #{item.status,jdbcType=TINYINT},
+				</if>
+				<if test="item.ct != null ">
+				c_t = #{item.ct,jdbcType=INTEGER},
+				</if>
+				<if test="item.creater != null ">
+				creater = #{item.creater,jdbcType=BIGINT},
+				</if>
+				<if test="item.ut != null ">
+				u_t = #{item.ut,jdbcType=INTEGER},
+				</if>
+				<if test="item.updater != null ">
+				updater = #{item.updater,jdbcType=BIGINT},
+				</if>
+				<if test="item.updaterName != null and item.updaterName != ''">
+				updaterName = #{item.updaterName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.isDeleted != null ">
+				is_deleted = #{item.isDeleted,jdbcType=TINYINT}
+				</if>
+			</set>
+			WHERE
+				id = #{item.id} 
+		</foreach>
+	</update>
+</mapper>
+

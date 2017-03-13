@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.szl.decp.customer.dao.PdmsSortingCenterAreaDao">
+	<!-- table映射实体对象 -->
+	<resultMap id="RM_PdmsSortingCenterArea" type="PdmsSortingCenterArea">
+		<result property="id" column="id" jdbcType="BIGINT"/>
+		<result property="sysCode" column="sys_code" jdbcType="VARCHAR"/>
+		<result property="code" column="code" jdbcType="VARCHAR"/>
+		<result property="showCode" column="show_code" jdbcType="VARCHAR"/>
+		<result property="regionCode" column="region_code" jdbcType="VARCHAR"/>
+		<result property="name" column="name" jdbcType="VARCHAR"/>
+		<result property="type" column="type" jdbcType="TINYINT"/>
+		<result property="isThrowLine" column="is_throw_line" jdbcType="TINYINT"/>
+		<result property="temperatureLayer" column="temperature_layer" jdbcType="TINYINT"/>
+		<result property="sortingCenterId" column="sorting_center_id" jdbcType="BIGINT"/>
+		<result property="status" column="status" jdbcType="TINYINT"/>
+		<result property="creater" column="creater" jdbcType="BIGINT"/>
+		<result property="ct" column="c_t" jdbcType="INTEGER"/>
+		<result property="updater" column="updater" jdbcType="BIGINT"/>
+		<result property="ut" column="u_t" jdbcType="INTEGER"/>
+		<result property="updaterName" column="updaterName" jdbcType="VARCHAR"/>
+		<result property="remark" column="remark" jdbcType="VARCHAR"/>
+		<result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="Base_Column_List">
+	    <![CDATA[
+		id,sys_code,code,show_code,region_code,name,type,is_throw_line,temperature_layer,sorting_center_id,status,creater,c_t,updater,u_t,updaterName,remark,is_deleted
+	    ]]>
+	</sql>
+
+	<!-- 增加 -->
+	<insert id="insert" parameterType="PdmsSortingCenterArea" useGeneratedKeys="true" keyProperty="id">
+		insert into pdms_sorting_center_area
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				id ,
+			</if>
+			<if test="sysCode != null and sysCode != ''">
+				sys_code ,
+			</if>
+			<if test="code != null and code != ''">
+				code ,
+			</if>
+			<if test="showCode != null and showCode != ''">
+				show_code ,
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+				region_code ,
+			</if>
+			<if test="name != null and name != ''">
+				name ,
+			</if>
+			<if test="type != null ">
+				type ,
+			</if>
+			<if test="isThrowLine != null ">
+				is_throw_line ,
+			</if>
+			<if test="temperatureLayer != null ">
+				temperature_layer ,
+			</if>
+			<if test="sortingCenterId != null ">
+				sorting_center_id ,
+			</if>
+			<if test="status != null ">
+				status ,
+			</if>
+			<if test="creater != null ">
+				creater ,
+			</if>
+			<if test="ct != null ">
+				c_t ,
+			</if>
+			<if test="updater != null ">
+				updater ,
+			</if>
+			<if test="ut != null ">
+				u_t ,
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+				updaterName ,
+			</if>
+			<if test="remark != null and remark != ''">
+				remark ,
+			</if>
+			<if test="isDeleted != null ">
+				is_deleted ,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="sysCode != null and sysCode != ''">
+				#{sysCode,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != ''">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="showCode != null and showCode != ''">
+				#{showCode,jdbcType=VARCHAR},
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+				#{regionCode,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null and name != ''">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null ">
+				#{type,jdbcType=TINYINT},
+			</if>
+			<if test="isThrowLine != null ">
+				#{isThrowLine,jdbcType=TINYINT},
+			</if>
+			<if test="temperatureLayer != null ">
+				#{temperatureLayer,jdbcType=TINYINT},
+			</if>
+			<if test="sortingCenterId != null ">
+				#{sortingCenterId,jdbcType=BIGINT},
+			</if>
+			<if test="status != null ">
+				#{status,jdbcType=TINYINT},
+			</if>
+			<if test="creater != null ">
+				#{creater,jdbcType=BIGINT},
+			</if>
+			<if test="ct != null ">
+				#{ct,jdbcType=INTEGER},
+			</if>
+			<if test="updater != null ">
+				#{updater,jdbcType=BIGINT},
+			</if>
+			<if test="ut != null ">
+				#{ut,jdbcType=INTEGER},
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+				#{updaterName,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null and remark != ''">
+				#{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="isDeleted != null ">
+				#{isDeleted,jdbcType=TINYINT},
+			</if>
+		</trim>
+	</insert>
+	<!-- 更新 -->
+	<update id="update" parameterType="PdmsSortingCenterArea">
+		UPDATE pdms_sorting_center_area
+		<set>
+			<if test="sysCode != null and sysCode != ''">
+			sys_code = #{sysCode,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != ''">
+			code = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="showCode != null and showCode != ''">
+			show_code = #{showCode,jdbcType=VARCHAR},
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+			region_code = #{regionCode,jdbcType=VARCHAR},
+			</if>
+			<if test="name != null and name != ''">
+			name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="type != null ">
+			type = #{type,jdbcType=TINYINT},
+			</if>
+			<if test="isThrowLine != null ">
+			is_throw_line = #{isThrowLine,jdbcType=TINYINT},
+			</if>
+			<if test="temperatureLayer != null ">
+			temperature_layer = #{temperatureLayer,jdbcType=TINYINT},
+			</if>
+			<if test="sortingCenterId != null ">
+			sorting_center_id = #{sortingCenterId,jdbcType=BIGINT},
+			</if>
+			<if test="status != null ">
+			status = #{status,jdbcType=TINYINT},
+			</if>
+			<if test="creater != null ">
+			creater = #{creater,jdbcType=BIGINT},
+			</if>
+			<if test="ct != null ">
+			c_t = #{ct,jdbcType=INTEGER},
+			</if>
+			<if test="updater != null ">
+			updater = #{updater,jdbcType=BIGINT},
+			</if>
+			<if test="ut != null ">
+			u_t = #{ut,jdbcType=INTEGER},
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+			updaterName = #{updaterName,jdbcType=VARCHAR},
+			</if>
+			<if test="remark != null and remark != ''">
+			remark = #{remark,jdbcType=VARCHAR},
+			</if>
+			<if test="isDeleted != null ">
+			is_deleted = #{isDeleted,jdbcType=TINYINT}
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+	</update>
+	<!-- 伪删除（更新删除行的识别码） -->
+	<update id="delete" parameterType="PdmsSortingCenterArea">
+		UPDATE pdms_sorting_center_area SET is_deleted=1
+		WHERE
+		id = #{id} 
+	</update>
+	<!-- 按主键查询 -->
+	<select id="selectByPrimaryKey" resultMap="RM_PdmsSortingCenterArea" parameterType="PdmsSortingCenterArea">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM pdms_sorting_center_area 
+	        WHERE 
+		        id = #{id} 
+	    ]]>
+	</select>
+	<!-- 按表中的XXX列查询集合 -->
+	<select id="selectByColumn" resultMap="RM_PdmsSortingCenterArea" parameterType="PdmsSortingCenterAreaQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_sorting_center_area
+		where ${columnName}
+		<if test="columnValueList != null">
+			<if test="columnValueList.size() ==1 ">
+				=#{columnValueList[0]}
+			</if>
+			<if test="columnValueList.size() >1 ">
+				in (
+					<foreach collection="columnValueList" item="item" index="index" separator=",">
+						#{item}
+					</foreach>
+				)
+			</if>
+		</if>
+	</select>
+	<!-- where条件 -->
+	<sql id="where">
+		<where>
+			<include refid="sql_if_not_null" />
+		</where>
+	</sql>
+	<!-- 判断空值 -->
+	<sql id="sql_if_not_null">
+		<if test="id != null ">
+		AND id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="sysCode != null and sysCode != ''">
+		AND sys_code = #{sysCode,jdbcType=VARCHAR}
+		</if>
+		<if test="code != null and code != ''">
+		AND code = #{code,jdbcType=VARCHAR}
+		</if>
+		<if test="showCode != null and showCode != ''">
+		AND show_code = #{showCode,jdbcType=VARCHAR}
+		</if>
+		<if test="regionCode != null and regionCode != ''">
+		AND region_code = #{regionCode,jdbcType=VARCHAR}
+		</if>
+		<if test="name != null and name != ''">
+		AND name = #{name,jdbcType=VARCHAR}
+		</if>
+		<if test="type != null ">
+		AND type = #{type,jdbcType=TINYINT}
+		</if>
+		<if test="isThrowLine != null ">
+		AND is_throw_line = #{isThrowLine,jdbcType=TINYINT}
+		</if>
+		<if test="temperatureLayer != null ">
+		AND temperature_layer = #{temperatureLayer,jdbcType=TINYINT}
+		</if>
+		<if test="sortingCenterId != null ">
+		AND sorting_center_id = #{sortingCenterId,jdbcType=BIGINT}
+		</if>
+		<if test="status != null ">
+		AND status = #{status,jdbcType=TINYINT}
+		</if>
+		<if test="creater != null ">
+		AND creater = #{creater,jdbcType=BIGINT}
+		</if>
+		<if test="ct != null ">
+		AND c_t = #{ct,jdbcType=INTEGER}
+		</if>
+		<if test="updater != null ">
+		AND updater = #{updater,jdbcType=BIGINT}
+		</if>
+		<if test="ut != null ">
+		AND u_t = #{ut,jdbcType=INTEGER}
+		</if>
+		<if test="updaterName != null and updaterName != ''">
+		AND updaterName = #{updaterName,jdbcType=VARCHAR}
+		</if>
+		<if test="remark != null and remark != ''">
+		AND remark = #{remark,jdbcType=VARCHAR}
+		</if>
+		<if test="isDeleted != null ">
+		AND is_deleted = #{isDeleted,jdbcType=TINYINT}
+		</if>
+	</sql>
+	<!-- 查询行数 -->
+	<select id="count" resultType="long" parameterType="PdmsSortingCenterAreaQuery">
+		SELECT count(1) FROM pdms_sorting_center_area
+		<include refid="where" />
+	</select>
+	<!-- 查询集合 如果pageNumber小于或等于0,则不进行分页操作 -->
+	<select id="queryList" resultMap="RM_PdmsSortingCenterArea" parameterType="PdmsSortingCenterAreaQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_sorting_center_area
+		<include refid="where" />
+
+		<if test="sortName != null  ">
+			ORDER BY ${sortName} ${sortOrder}
+		</if>
+		<if test="sortName == null and pageNumber &gt;0 ">
+			ORDER BY id
+		</if>
+		<if test="pageNumber &gt;0 ">
+			limit #{startRecord} , #{pageSize}
+		</if>
+	</select>
+	<!-- 批量增加 -->
+	<insert id="batchInsert" useGeneratedKeys="true" parameterType="java.util.List">
+		<!-- <selectKey resultType="long" keyProperty="id" order="AFTER"> SELECT LAST_INSERT_ID() </selectKey> -->
+		insert into pdms_sorting_center_area
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id ,
+			sys_code ,
+			code ,
+			show_code ,
+			region_code ,
+			name ,
+			type ,
+			is_throw_line ,
+			temperature_layer ,
+			sorting_center_id ,
+			status ,
+			creater ,
+			c_t ,
+			updater ,
+			u_t ,
+			updaterName ,
+			remark ,
+			is_deleted ,
+		</trim>
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			<trim prefix=" (" suffix=")" suffixOverrides=",">
+					#{item.id,jdbcType=BIGINT},
+					#{item.sysCode,jdbcType=VARCHAR},
+					#{item.code,jdbcType=VARCHAR},
+					#{item.showCode,jdbcType=VARCHAR},
+					#{item.regionCode,jdbcType=VARCHAR},
+					#{item.name,jdbcType=VARCHAR},
+					#{item.type,jdbcType=TINYINT},
+					#{item.isThrowLine,jdbcType=TINYINT},
+					#{item.temperatureLayer,jdbcType=TINYINT},
+					#{item.sortingCenterId,jdbcType=BIGINT},
+					#{item.status,jdbcType=TINYINT},
+					#{item.creater,jdbcType=BIGINT},
+					#{item.ct,jdbcType=INTEGER},
+					#{item.updater,jdbcType=BIGINT},
+					#{item.ut,jdbcType=INTEGER},
+					#{item.updaterName,jdbcType=VARCHAR},
+					#{item.remark,jdbcType=VARCHAR},
+					#{item.isDeleted,jdbcType=TINYINT},
+			</trim>
+		</foreach>
+	</insert>
+	<!-- 批量伪删除 -->
+	<update id="batchDelete" parameterType="PdmsSortingCenterAreaQuery">
+		UPDATE pdms_sorting_center_area SET is_deleted = 1 WHERE id IN
+		<foreach collection="columnValueList" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<!-- 批量更新 -->
+	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index"  separator=";">
+			UPDATE pdms_sorting_center_area
+			<set>
+				<if test="item.sysCode != null and item.sysCode != ''">
+				sys_code = #{item.sysCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.code != null and item.code != ''">
+				code = #{item.code,jdbcType=VARCHAR},
+				</if>
+				<if test="item.showCode != null and item.showCode != ''">
+				show_code = #{item.showCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.regionCode != null and item.regionCode != ''">
+				region_code = #{item.regionCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.name != null and item.name != ''">
+				name = #{item.name,jdbcType=VARCHAR},
+				</if>
+				<if test="item.type != null ">
+				type = #{item.type,jdbcType=TINYINT},
+				</if>
+				<if test="item.isThrowLine != null ">
+				is_throw_line = #{item.isThrowLine,jdbcType=TINYINT},
+				</if>
+				<if test="item.temperatureLayer != null ">
+				temperature_layer = #{item.temperatureLayer,jdbcType=TINYINT},
+				</if>
+				<if test="item.sortingCenterId != null ">
+				sorting_center_id = #{item.sortingCenterId,jdbcType=BIGINT},
+				</if>
+				<if test="item.status != null ">
+				status = #{item.status,jdbcType=TINYINT},
+				</if>
+				<if test="item.creater != null ">
+				creater = #{item.creater,jdbcType=BIGINT},
+				</if>
+				<if test="item.ct != null ">
+				c_t = #{item.ct,jdbcType=INTEGER},
+				</if>
+				<if test="item.updater != null ">
+				updater = #{item.updater,jdbcType=BIGINT},
+				</if>
+				<if test="item.ut != null ">
+				u_t = #{item.ut,jdbcType=INTEGER},
+				</if>
+				<if test="item.updaterName != null and item.updaterName != ''">
+				updaterName = #{item.updaterName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.remark != null and item.remark != ''">
+				remark = #{item.remark,jdbcType=VARCHAR},
+				</if>
+				<if test="item.isDeleted != null ">
+				is_deleted = #{item.isDeleted,jdbcType=TINYINT}
+				</if>
+			</set>
+			WHERE
+				id = #{item.id} 
+		</foreach>
+	</update>
+</mapper>
+

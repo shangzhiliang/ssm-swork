@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.szl.decp.customer.dao.PdmsShippingLocationDao">
+	<!-- table映射实体对象 -->
+	<resultMap id="RM_PdmsShippingLocation" type="PdmsShippingLocation">
+		<result property="id" column="id" jdbcType="BIGINT"/>
+		<result property="sysCode" column="sys_code" jdbcType="VARCHAR"/>
+		<result property="code" column="code" jdbcType="VARCHAR"/>
+		<result property="sortingCenterId" column="sorting_center_id" jdbcType="BIGINT"/>
+		<result property="showCode" column="show_code" jdbcType="VARCHAR"/>
+		<result property="regionCode" column="region_code" jdbcType="VARCHAR"/>
+		<result property="shippingLineId" column="shipping_line_id" jdbcType="BIGINT"/>
+		<result property="sortingCenterAreaId" column="sorting_center_area_id" jdbcType="BIGINT"/>
+		<result property="layer" column="layer" jdbcType="VARCHAR"/>
+		<result property="line" column="line" jdbcType="VARCHAR"/>
+		<result property="deep" column="deep" jdbcType="VARCHAR"/>
+		<result property="sortingOrder" column="sorting_order" jdbcType="INTEGER"/>
+		<result property="specification" column="specification" jdbcType="VARCHAR"/>
+		<result property="bearingWeight" column="bearing_weight" jdbcType="INTEGER"/>
+		<result property="status" column="status" jdbcType="TINYINT"/>
+		<result property="type" column="type" jdbcType="TINYINT"/>
+		<result property="volumeLimit" column="volume_limit" jdbcType="TINYINT"/>
+		<result property="weightLimit" column="weight_limit" jdbcType="DECIMAL"/>
+		<result property="quantityLimit" column="quantity_limit" jdbcType="INTEGER"/>
+		<result property="length" column="length" jdbcType="INTEGER"/>
+		<result property="width" column="width" jdbcType="INTEGER"/>
+		<result property="height" column="height" jdbcType="INTEGER"/>
+		<result property="ct" column="c_t" jdbcType="INTEGER"/>
+		<result property="creater" column="creater" jdbcType="BIGINT"/>
+		<result property="ut" column="u_t" jdbcType="INTEGER"/>
+		<result property="updater" column="updater" jdbcType="BIGINT"/>
+		<result property="updaterName" column="updaterName" jdbcType="VARCHAR"/>
+		<result property="isDeleted" column="is_deleted" jdbcType="TINYINT"/>
+	</resultMap>
+
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="Base_Column_List">
+	    <![CDATA[
+		id,sys_code,code,sorting_center_id,show_code,region_code,shipping_line_id,sorting_center_area_id,layer,line,deep,sorting_order,specification,bearing_weight,status,type,volume_limit,weight_limit,quantity_limit,length,width,height,c_t,creater,u_t,updater,updaterName,is_deleted
+	    ]]>
+	</sql>
+
+	<!-- 增加 -->
+	<insert id="insert" parameterType="PdmsShippingLocation" useGeneratedKeys="true" keyProperty="id">
+		insert into pdms_shipping_location
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				id ,
+			</if>
+			<if test="sysCode != null and sysCode != ''">
+				sys_code ,
+			</if>
+			<if test="code != null and code != ''">
+				code ,
+			</if>
+			<if test="sortingCenterId != null ">
+				sorting_center_id ,
+			</if>
+			<if test="showCode != null and showCode != ''">
+				show_code ,
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+				region_code ,
+			</if>
+			<if test="shippingLineId != null ">
+				shipping_line_id ,
+			</if>
+			<if test="sortingCenterAreaId != null ">
+				sorting_center_area_id ,
+			</if>
+			<if test="layer != null and layer != ''">
+				layer ,
+			</if>
+			<if test="line != null and line != ''">
+				line ,
+			</if>
+			<if test="deep != null and deep != ''">
+				deep ,
+			</if>
+			<if test="sortingOrder != null ">
+				sorting_order ,
+			</if>
+			<if test="specification != null and specification != ''">
+				specification ,
+			</if>
+			<if test="bearingWeight != null ">
+				bearing_weight ,
+			</if>
+			<if test="status != null ">
+				status ,
+			</if>
+			<if test="type != null ">
+				type ,
+			</if>
+			<if test="volumeLimit != null ">
+				volume_limit ,
+			</if>
+			<if test="weightLimit != null ">
+				weight_limit ,
+			</if>
+			<if test="quantityLimit != null ">
+				quantity_limit ,
+			</if>
+			<if test="length != null ">
+				length ,
+			</if>
+			<if test="width != null ">
+				width ,
+			</if>
+			<if test="height != null ">
+				height ,
+			</if>
+			<if test="ct != null ">
+				c_t ,
+			</if>
+			<if test="creater != null ">
+				creater ,
+			</if>
+			<if test="ut != null ">
+				u_t ,
+			</if>
+			<if test="updater != null ">
+				updater ,
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+				updaterName ,
+			</if>
+			<if test="isDeleted != null ">
+				is_deleted ,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null ">
+				#{id,jdbcType=BIGINT},
+			</if>
+			<if test="sysCode != null and sysCode != ''">
+				#{sysCode,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != ''">
+				#{code,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterId != null ">
+				#{sortingCenterId,jdbcType=BIGINT},
+			</if>
+			<if test="showCode != null and showCode != ''">
+				#{showCode,jdbcType=VARCHAR},
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+				#{regionCode,jdbcType=VARCHAR},
+			</if>
+			<if test="shippingLineId != null ">
+				#{shippingLineId,jdbcType=BIGINT},
+			</if>
+			<if test="sortingCenterAreaId != null ">
+				#{sortingCenterAreaId,jdbcType=BIGINT},
+			</if>
+			<if test="layer != null and layer != ''">
+				#{layer,jdbcType=VARCHAR},
+			</if>
+			<if test="line != null and line != ''">
+				#{line,jdbcType=VARCHAR},
+			</if>
+			<if test="deep != null and deep != ''">
+				#{deep,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingOrder != null ">
+				#{sortingOrder,jdbcType=INTEGER},
+			</if>
+			<if test="specification != null and specification != ''">
+				#{specification,jdbcType=VARCHAR},
+			</if>
+			<if test="bearingWeight != null ">
+				#{bearingWeight,jdbcType=INTEGER},
+			</if>
+			<if test="status != null ">
+				#{status,jdbcType=TINYINT},
+			</if>
+			<if test="type != null ">
+				#{type,jdbcType=TINYINT},
+			</if>
+			<if test="volumeLimit != null ">
+				#{volumeLimit,jdbcType=TINYINT},
+			</if>
+			<if test="weightLimit != null ">
+				#{weightLimit,jdbcType=DECIMAL},
+			</if>
+			<if test="quantityLimit != null ">
+				#{quantityLimit,jdbcType=INTEGER},
+			</if>
+			<if test="length != null ">
+				#{length,jdbcType=INTEGER},
+			</if>
+			<if test="width != null ">
+				#{width,jdbcType=INTEGER},
+			</if>
+			<if test="height != null ">
+				#{height,jdbcType=INTEGER},
+			</if>
+			<if test="ct != null ">
+				#{ct,jdbcType=INTEGER},
+			</if>
+			<if test="creater != null ">
+				#{creater,jdbcType=BIGINT},
+			</if>
+			<if test="ut != null ">
+				#{ut,jdbcType=INTEGER},
+			</if>
+			<if test="updater != null ">
+				#{updater,jdbcType=BIGINT},
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+				#{updaterName,jdbcType=VARCHAR},
+			</if>
+			<if test="isDeleted != null ">
+				#{isDeleted,jdbcType=TINYINT},
+			</if>
+		</trim>
+	</insert>
+	<!-- 更新 -->
+	<update id="update" parameterType="PdmsShippingLocation">
+		UPDATE pdms_shipping_location
+		<set>
+			<if test="sysCode != null and sysCode != ''">
+			sys_code = #{sysCode,jdbcType=VARCHAR},
+			</if>
+			<if test="code != null and code != ''">
+			code = #{code,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingCenterId != null ">
+			sorting_center_id = #{sortingCenterId,jdbcType=BIGINT},
+			</if>
+			<if test="showCode != null and showCode != ''">
+			show_code = #{showCode,jdbcType=VARCHAR},
+			</if>
+			<if test="regionCode != null and regionCode != ''">
+			region_code = #{regionCode,jdbcType=VARCHAR},
+			</if>
+			<if test="shippingLineId != null ">
+			shipping_line_id = #{shippingLineId,jdbcType=BIGINT},
+			</if>
+			<if test="sortingCenterAreaId != null ">
+			sorting_center_area_id = #{sortingCenterAreaId,jdbcType=BIGINT},
+			</if>
+			<if test="layer != null and layer != ''">
+			layer = #{layer,jdbcType=VARCHAR},
+			</if>
+			<if test="line != null and line != ''">
+			line = #{line,jdbcType=VARCHAR},
+			</if>
+			<if test="deep != null and deep != ''">
+			deep = #{deep,jdbcType=VARCHAR},
+			</if>
+			<if test="sortingOrder != null ">
+			sorting_order = #{sortingOrder,jdbcType=INTEGER},
+			</if>
+			<if test="specification != null and specification != ''">
+			specification = #{specification,jdbcType=VARCHAR},
+			</if>
+			<if test="bearingWeight != null ">
+			bearing_weight = #{bearingWeight,jdbcType=INTEGER},
+			</if>
+			<if test="status != null ">
+			status = #{status,jdbcType=TINYINT},
+			</if>
+			<if test="type != null ">
+			type = #{type,jdbcType=TINYINT},
+			</if>
+			<if test="volumeLimit != null ">
+			volume_limit = #{volumeLimit,jdbcType=TINYINT},
+			</if>
+			<if test="weightLimit != null ">
+			weight_limit = #{weightLimit,jdbcType=DECIMAL},
+			</if>
+			<if test="quantityLimit != null ">
+			quantity_limit = #{quantityLimit,jdbcType=INTEGER},
+			</if>
+			<if test="length != null ">
+			length = #{length,jdbcType=INTEGER},
+			</if>
+			<if test="width != null ">
+			width = #{width,jdbcType=INTEGER},
+			</if>
+			<if test="height != null ">
+			height = #{height,jdbcType=INTEGER},
+			</if>
+			<if test="ct != null ">
+			c_t = #{ct,jdbcType=INTEGER},
+			</if>
+			<if test="creater != null ">
+			creater = #{creater,jdbcType=BIGINT},
+			</if>
+			<if test="ut != null ">
+			u_t = #{ut,jdbcType=INTEGER},
+			</if>
+			<if test="updater != null ">
+			updater = #{updater,jdbcType=BIGINT},
+			</if>
+			<if test="updaterName != null and updaterName != ''">
+			updaterName = #{updaterName,jdbcType=VARCHAR},
+			</if>
+			<if test="isDeleted != null ">
+			is_deleted = #{isDeleted,jdbcType=TINYINT}
+			</if>
+		</set>
+		WHERE
+			id = #{id}
+	</update>
+	<!-- 伪删除（更新删除行的识别码） -->
+	<update id="delete" parameterType="PdmsShippingLocation">
+		UPDATE pdms_shipping_location SET is_deleted=1
+		WHERE
+		id = #{id} 
+	</update>
+	<!-- 按主键查询 -->
+	<select id="selectByPrimaryKey" resultMap="RM_PdmsShippingLocation" parameterType="PdmsShippingLocation">
+		SELECT
+		<include refid="Base_Column_List" />
+	    <![CDATA[
+		    FROM pdms_shipping_location 
+	        WHERE 
+		        id = #{id} 
+	    ]]>
+	</select>
+	<!-- 按表中的XXX列查询集合 -->
+	<select id="selectByColumn" resultMap="RM_PdmsShippingLocation" parameterType="PdmsShippingLocationQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_shipping_location
+		where ${columnName}
+		<if test="columnValueList != null">
+			<if test="columnValueList.size() ==1 ">
+				=#{columnValueList[0]}
+			</if>
+			<if test="columnValueList.size() >1 ">
+				in (
+					<foreach collection="columnValueList" item="item" index="index" separator=",">
+						#{item}
+					</foreach>
+				)
+			</if>
+		</if>
+	</select>
+	<!-- where条件 -->
+	<sql id="where">
+		<where>
+			<include refid="sql_if_not_null" />
+		</where>
+	</sql>
+	<!-- 判断空值 -->
+	<sql id="sql_if_not_null">
+		<if test="id != null ">
+		AND id = #{id,jdbcType=BIGINT}
+		</if>
+		<if test="sysCode != null and sysCode != ''">
+		AND sys_code = #{sysCode,jdbcType=VARCHAR}
+		</if>
+		<if test="code != null and code != ''">
+		AND code = #{code,jdbcType=VARCHAR}
+		</if>
+		<if test="sortingCenterId != null ">
+		AND sorting_center_id = #{sortingCenterId,jdbcType=BIGINT}
+		</if>
+		<if test="showCode != null and showCode != ''">
+		AND show_code = #{showCode,jdbcType=VARCHAR}
+		</if>
+		<if test="regionCode != null and regionCode != ''">
+		AND region_code = #{regionCode,jdbcType=VARCHAR}
+		</if>
+		<if test="shippingLineId != null ">
+		AND shipping_line_id = #{shippingLineId,jdbcType=BIGINT}
+		</if>
+		<if test="sortingCenterAreaId != null ">
+		AND sorting_center_area_id = #{sortingCenterAreaId,jdbcType=BIGINT}
+		</if>
+		<if test="layer != null and layer != ''">
+		AND layer = #{layer,jdbcType=VARCHAR}
+		</if>
+		<if test="line != null and line != ''">
+		AND line = #{line,jdbcType=VARCHAR}
+		</if>
+		<if test="deep != null and deep != ''">
+		AND deep = #{deep,jdbcType=VARCHAR}
+		</if>
+		<if test="sortingOrder != null ">
+		AND sorting_order = #{sortingOrder,jdbcType=INTEGER}
+		</if>
+		<if test="specification != null and specification != ''">
+		AND specification = #{specification,jdbcType=VARCHAR}
+		</if>
+		<if test="bearingWeight != null ">
+		AND bearing_weight = #{bearingWeight,jdbcType=INTEGER}
+		</if>
+		<if test="status != null ">
+		AND status = #{status,jdbcType=TINYINT}
+		</if>
+		<if test="type != null ">
+		AND type = #{type,jdbcType=TINYINT}
+		</if>
+		<if test="volumeLimit != null ">
+		AND volume_limit = #{volumeLimit,jdbcType=TINYINT}
+		</if>
+		<if test="weightLimit != null ">
+		AND weight_limit = #{weightLimit,jdbcType=DECIMAL}
+		</if>
+		<if test="quantityLimit != null ">
+		AND quantity_limit = #{quantityLimit,jdbcType=INTEGER}
+		</if>
+		<if test="length != null ">
+		AND length = #{length,jdbcType=INTEGER}
+		</if>
+		<if test="width != null ">
+		AND width = #{width,jdbcType=INTEGER}
+		</if>
+		<if test="height != null ">
+		AND height = #{height,jdbcType=INTEGER}
+		</if>
+		<if test="ct != null ">
+		AND c_t = #{ct,jdbcType=INTEGER}
+		</if>
+		<if test="creater != null ">
+		AND creater = #{creater,jdbcType=BIGINT}
+		</if>
+		<if test="ut != null ">
+		AND u_t = #{ut,jdbcType=INTEGER}
+		</if>
+		<if test="updater != null ">
+		AND updater = #{updater,jdbcType=BIGINT}
+		</if>
+		<if test="updaterName != null and updaterName != ''">
+		AND updaterName = #{updaterName,jdbcType=VARCHAR}
+		</if>
+		<if test="isDeleted != null ">
+		AND is_deleted = #{isDeleted,jdbcType=TINYINT}
+		</if>
+	</sql>
+	<!-- 查询行数 -->
+	<select id="count" resultType="long" parameterType="PdmsShippingLocationQuery">
+		SELECT count(1) FROM pdms_shipping_location
+		<include refid="where" />
+	</select>
+	<!-- 查询集合 如果pageNumber小于或等于0,则不进行分页操作 -->
+	<select id="queryList" resultMap="RM_PdmsShippingLocation" parameterType="PdmsShippingLocationQuery">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM pdms_shipping_location
+		<include refid="where" />
+
+		<if test="sortName != null  ">
+			ORDER BY ${sortName} ${sortOrder}
+		</if>
+		<if test="sortName == null and pageNumber &gt;0 ">
+			ORDER BY id
+		</if>
+		<if test="pageNumber &gt;0 ">
+			limit #{startRecord} , #{pageSize}
+		</if>
+	</select>
+	<!-- 批量增加 -->
+	<insert id="batchInsert" useGeneratedKeys="true" parameterType="java.util.List">
+		<!-- <selectKey resultType="long" keyProperty="id" order="AFTER"> SELECT LAST_INSERT_ID() </selectKey> -->
+		insert into pdms_shipping_location
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			id ,
+			sys_code ,
+			code ,
+			sorting_center_id ,
+			show_code ,
+			region_code ,
+			shipping_line_id ,
+			sorting_center_area_id ,
+			layer ,
+			line ,
+			deep ,
+			sorting_order ,
+			specification ,
+			bearing_weight ,
+			status ,
+			type ,
+			volume_limit ,
+			weight_limit ,
+			quantity_limit ,
+			length ,
+			width ,
+			height ,
+			c_t ,
+			creater ,
+			u_t ,
+			updater ,
+			updaterName ,
+			is_deleted ,
+		</trim>
+		values
+		<foreach collection="list" item="item" index="index" separator=",">
+			<trim prefix=" (" suffix=")" suffixOverrides=",">
+					#{item.id,jdbcType=BIGINT},
+					#{item.sysCode,jdbcType=VARCHAR},
+					#{item.code,jdbcType=VARCHAR},
+					#{item.sortingCenterId,jdbcType=BIGINT},
+					#{item.showCode,jdbcType=VARCHAR},
+					#{item.regionCode,jdbcType=VARCHAR},
+					#{item.shippingLineId,jdbcType=BIGINT},
+					#{item.sortingCenterAreaId,jdbcType=BIGINT},
+					#{item.layer,jdbcType=VARCHAR},
+					#{item.line,jdbcType=VARCHAR},
+					#{item.deep,jdbcType=VARCHAR},
+					#{item.sortingOrder,jdbcType=INTEGER},
+					#{item.specification,jdbcType=VARCHAR},
+					#{item.bearingWeight,jdbcType=INTEGER},
+					#{item.status,jdbcType=TINYINT},
+					#{item.type,jdbcType=TINYINT},
+					#{item.volumeLimit,jdbcType=TINYINT},
+					#{item.weightLimit,jdbcType=DECIMAL},
+					#{item.quantityLimit,jdbcType=INTEGER},
+					#{item.length,jdbcType=INTEGER},
+					#{item.width,jdbcType=INTEGER},
+					#{item.height,jdbcType=INTEGER},
+					#{item.ct,jdbcType=INTEGER},
+					#{item.creater,jdbcType=BIGINT},
+					#{item.ut,jdbcType=INTEGER},
+					#{item.updater,jdbcType=BIGINT},
+					#{item.updaterName,jdbcType=VARCHAR},
+					#{item.isDeleted,jdbcType=TINYINT},
+			</trim>
+		</foreach>
+	</insert>
+	<!-- 批量伪删除 -->
+	<update id="batchDelete" parameterType="PdmsShippingLocationQuery">
+		UPDATE pdms_shipping_location SET is_deleted = 1 WHERE id IN
+		<foreach collection="columnValueList" item="item" index="index" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</update>
+	<!-- 批量更新 -->
+	<update id="batchUpdate" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index"  separator=";">
+			UPDATE pdms_shipping_location
+			<set>
+				<if test="item.sysCode != null and item.sysCode != ''">
+				sys_code = #{item.sysCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.code != null and item.code != ''">
+				code = #{item.code,jdbcType=VARCHAR},
+				</if>
+				<if test="item.sortingCenterId != null ">
+				sorting_center_id = #{item.sortingCenterId,jdbcType=BIGINT},
+				</if>
+				<if test="item.showCode != null and item.showCode != ''">
+				show_code = #{item.showCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.regionCode != null and item.regionCode != ''">
+				region_code = #{item.regionCode,jdbcType=VARCHAR},
+				</if>
+				<if test="item.shippingLineId != null ">
+				shipping_line_id = #{item.shippingLineId,jdbcType=BIGINT},
+				</if>
+				<if test="item.sortingCenterAreaId != null ">
+				sorting_center_area_id = #{item.sortingCenterAreaId,jdbcType=BIGINT},
+				</if>
+				<if test="item.layer != null and item.layer != ''">
+				layer = #{item.layer,jdbcType=VARCHAR},
+				</if>
+				<if test="item.line != null and item.line != ''">
+				line = #{item.line,jdbcType=VARCHAR},
+				</if>
+				<if test="item.deep != null and item.deep != ''">
+				deep = #{item.deep,jdbcType=VARCHAR},
+				</if>
+				<if test="item.sortingOrder != null ">
+				sorting_order = #{item.sortingOrder,jdbcType=INTEGER},
+				</if>
+				<if test="item.specification != null and item.specification != ''">
+				specification = #{item.specification,jdbcType=VARCHAR},
+				</if>
+				<if test="item.bearingWeight != null ">
+				bearing_weight = #{item.bearingWeight,jdbcType=INTEGER},
+				</if>
+				<if test="item.status != null ">
+				status = #{item.status,jdbcType=TINYINT},
+				</if>
+				<if test="item.type != null ">
+				type = #{item.type,jdbcType=TINYINT},
+				</if>
+				<if test="item.volumeLimit != null ">
+				volume_limit = #{item.volumeLimit,jdbcType=TINYINT},
+				</if>
+				<if test="item.weightLimit != null ">
+				weight_limit = #{item.weightLimit,jdbcType=DECIMAL},
+				</if>
+				<if test="item.quantityLimit != null ">
+				quantity_limit = #{item.quantityLimit,jdbcType=INTEGER},
+				</if>
+				<if test="item.length != null ">
+				length = #{item.length,jdbcType=INTEGER},
+				</if>
+				<if test="item.width != null ">
+				width = #{item.width,jdbcType=INTEGER},
+				</if>
+				<if test="item.height != null ">
+				height = #{item.height,jdbcType=INTEGER},
+				</if>
+				<if test="item.ct != null ">
+				c_t = #{item.ct,jdbcType=INTEGER},
+				</if>
+				<if test="item.creater != null ">
+				creater = #{item.creater,jdbcType=BIGINT},
+				</if>
+				<if test="item.ut != null ">
+				u_t = #{item.ut,jdbcType=INTEGER},
+				</if>
+				<if test="item.updater != null ">
+				updater = #{item.updater,jdbcType=BIGINT},
+				</if>
+				<if test="item.updaterName != null and item.updaterName != ''">
+				updaterName = #{item.updaterName,jdbcType=VARCHAR},
+				</if>
+				<if test="item.isDeleted != null ">
+				is_deleted = #{item.isDeleted,jdbcType=TINYINT}
+				</if>
+			</set>
+			WHERE
+				id = #{item.id} 
+		</foreach>
+	</update>
+</mapper>
+
